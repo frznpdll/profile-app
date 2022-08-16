@@ -7,11 +7,14 @@
     <title>{{ $title }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta name='csrf-token' content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="container mx-auto mt-9 max-w-screen-lg">
         {{ $slot }}
     </div>
+    <script src="js/sort.js"></script>
+    <script src="js/crud.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

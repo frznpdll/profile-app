@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PersonController;
-use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,19 +25,11 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/profile', [PersonController::class, 'index']);
-Route::get('/profile/show_all', [PersonController::class, 'showAll']);
-Route::post('/profile/sort', [PersonController::class, 'showSort']);
-// Route::get('/profile/gender/{gender}/{state}', [PersonController::class, 'sortGender'])
-//     ->name('sort.gender');
+Route::get('/profile', [ProfileController::class, 'index'])
+->name('profile.show');
 
-// Route::get('/profile/age/', [PersonController::class, 'sortAge'])
-//     ->name('sort.age');
+Route::get('/profile/show_all', [ProfileController::class, 'showAll']);
 
-// Route::get('/profile/height/', [PersonController::class, 'sortHeight'])
-//     ->name('sort.height');
+Route::post('/profile/sort', [ProfileController::class, 'showSort']);
 
-// Route::get('/profile/income/', [PersonController::class, 'sortIncome'])
-//     ->name('sort.income');
-
-
+Route::post('profile/create', [PersonController::class, 'create']);

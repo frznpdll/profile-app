@@ -27,22 +27,5 @@ class SortService
         }
         return $person->get();
     }
-
-    public function show_gender($active)
-    {
-        return Person::where('gender', $active)->latest()->get();
-    }
-
-    public function sort_numerical($active)
-    {
-        return Person::orderBy($active, $this->order)->get();
-    }
-
-    public function sort_gender_numerical()
-    {
-        // $person = new Person;
-        // $person->where('gender', $this->activeListe[0]);
-        // $person->orderBy($this->activeListtive[1], $this->order)->get();
-    }
 }
 

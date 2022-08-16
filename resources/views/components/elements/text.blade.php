@@ -1,0 +1,1 @@
+<input type="text" id="{{ $slot }}" class="form-control block w-full border border-solid border-gray-300 text-gray-700 rounded px-3 py-1.5 text-base">
