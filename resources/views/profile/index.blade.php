@@ -1,17 +1,24 @@
-<x-elements.layout title='一覧ページ'>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>並べ替えアプリ</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta name='csrf-token' content="{{ csrf_token() }}">   {{-- 非同期処理に用いるCSRFトークン --}}
+</head>
+<body>
+    {{-- bladeとtailwindcssを使ってページを作成した --}}
 
-    <header class="mx-auto flex my-5 ml-10">
-        <x-elements.button theme='gray' id="reset_button">一覧</x-elements.button>
-        <x-elements.button theme='indigo' id="create_person">作成</x-elements.button>
-    </header>
-    <div class="border-b-4"></div>
+    <div class="container mx-auto mt-9 max-w-screen-lg">
 
-    <x-elements.new-person></x-elements.new-person>
-
-    <div>
+        {{-- 並べ替えを行う項目を選択するボタン --}}
         <div class="mx-auto flex my-5 ml-10">
+            
             <x-elements.button theme='blue' id="male_show" name="male">男性</x-elements.button>
             <x-elements.button theme='red' id="female_show" name="female">女性</x-elements.button>
+            <div class="border-r-4"></div>
             <x-elements.button theme='cyan' id="age_sort" name="age">年齢</x-elements.button>
             <x-elements.button theme='green' id="height_sort" name="height">身長</x-elements.button>
             <x-elements.button theme='yellow' id="income_sort" name="annual_income">年収</x-elements.button>
@@ -33,8 +40,8 @@
             <tbody>
             </tbody>
         </table>
+
     </div>
-
-
-
-</x-elements.layout>
+    <script src="js/sort.js"></script>
+</body>
+</html>

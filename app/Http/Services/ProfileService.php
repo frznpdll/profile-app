@@ -2,8 +2,10 @@
 
 namespace App\Http\Services;
 
+// プロフィールに関するデータを扱うクラス
 class ProfileService
 {
+    // オブジェクト形式のデータを連想配列に変換する
     public function to_list($objects)
     {
         $list = array();

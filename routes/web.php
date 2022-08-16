@@ -31,5 +31,3 @@ Route::get('/profile', [ProfileController::class, 'index'])
 Route::get('/profile/show_all', [ProfileController::class, 'showAll']);
 
 Route::post('/profile/sort', [ProfileController::class, 'showSort']);
-
-Route::post('profile/create', [PersonController::class, 'create']);

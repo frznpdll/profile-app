@@ -4,6 +4,7 @@ namespace App\Http\Services;
 
 use App\Models\Person;
 
+// 並べ替えを行うクラス
 class SortService
 {
     public $activeList;
@@ -15,17 +16,18 @@ class SortService
         $this->order = $order;
     }
 
+    // 並べ替えを行う項目から，それぞれにあった並べ替えを行う
     public function sort()
     {
-        $person = Person::query();
+        $sql = Person::query();
         foreach ($this->activeList as $active) {
             if ($active === "male" || $active === "female") {
-                $person->where('gender', $active);
+                $sql->where('gender', $active);
             } elseif ($active === "age" || $active === "height" || $active === "annual_income") {
-                $person->orderBy($active, $this->order);
+                $sql->orderBy($active, $this->order);
             }
         }
-        return $person->get();
+        return $sql->get();     // sqlの実行は最後に行う
     }
 }
 
